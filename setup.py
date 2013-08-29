@@ -113,6 +113,10 @@ def get_compiler_settings(version_str):
     settings = { 'libraries': [],
                  'define_macros' : [ ('PYODBC_VERSION', version_str) ] }
 
+    print "##### -> In compiler settings"
+    print os.environ.get('GARRETT')
+    print "###### -> DONE"
+
     # This isn't the best or right way to do this, but I don't see how someone is supposed to sanely subclass the build
     # command.
     for option in ['assert', 'trace', 'leak-check']:
