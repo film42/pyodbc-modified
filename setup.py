@@ -137,16 +137,6 @@ def get_compiler_settings(version_str):
                                           ]
         settings['libraries'].append('odbc32')
         settings['libraries'].append('advapi32')
-        print "~ ~ PRINTING PATHS ~ ~"
-        unix_odbc_dir = os.environ.get('UNIX_ODBC_DIR')
-        print unix_odbc_dir
-        unix_odbc_include_path = unix_odbc_dir + "/include"
-        print unix_odbc_include_path
-        unix_odbc_lib_path = unix_odbc_dir + "/lib"
-        print unix_odbc_lib_path
-        
-        settings['include_dirs'] = [unix_odbc_include_path]
-        settings['library_dirs'] = [unix_odbc_lib_path]
 
         if '--debug' in sys.argv:
             sys.argv.remove('--debug')
@@ -177,6 +167,18 @@ def get_compiler_settings(version_str):
 
         # What is the proper way to detect iODBC, MyODBC, unixODBC, etc.?
         settings['libraries'].append('odbc')
+
+        
+    print "~ ~ PRINTING PATHS ~ ~"
+    unix_odbc_dir = os.environ.get('UNIX_ODBC_DIR')
+    print unix_odbc_dir
+    unix_odbc_include_path = unix_odbc_dir + "/include"
+    print unix_odbc_include_path
+    unix_odbc_lib_path = unix_odbc_dir + "/lib"
+    print unix_odbc_lib_path
+        
+    settings['include_dirs'] = [unix_odbc_include_path]
+    settings['library_dirs'] = [unix_odbc_lib_path]
 
     return settings
 
