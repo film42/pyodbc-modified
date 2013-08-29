@@ -137,6 +137,13 @@ def get_compiler_settings(version_str):
                                           ]
         settings['libraries'].append('odbc32')
         settings['libraries'].append('advapi32')
+        
+        unix_odbc_dir = os.environ.get('UNIX_ODBC_DIR')
+        unix_odbc_include_path = unix_odbc_dir + "/include"
+        unix_odbc_lib_path = unix_odbc_dir + "/lib"
+        
+        settings['include_dirs'] = [unix_odbc_include_path]
+        settings['library_dirs'] = [unix_odbc_lib_path]
 
         if '--debug' in sys.argv:
             sys.argv.remove('--debug')
