@@ -175,7 +175,6 @@ def get_compiler_settings(version_str):
     unix_odbc_include_path = unix_odbc_dir + "/include"
     print unix_odbc_include_path
     unix_odbc_lib_path = unix_odbc_dir + "/lib"
-    unix_odbc_lib_path = " " + unix_odbc_lib_path
     print unix_odbc_lib_path
         
     settings['include_dirs'] = [unix_odbc_include_path]
